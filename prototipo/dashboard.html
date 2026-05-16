@@ -3,136 +3,188 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca - Protótipo de Acervo</title>
     <style>
         body {
             font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-            background-color: #f0f2f0
+            background-color: #f0f2f0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
         
         .navbar {
             background-color: #2c3424;
-            height: 70px;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            position: relative;
+            z-index: 10;
+        }
+        
+        .nav-topo {
+            width: 100%;
+            height: 65px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 0 10%;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
         
         .logo {
             color: #ffffff;
             font-size: 22px;
             font-weight: bold;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
         }
         
         .logo span {
             color: #959581;
         }
         
-        .nav-links {
-            list-style: none;
-            display: flex;
-        }
-        
-        .nav-links li {
-            margin-left: 25px;
-        }
-        
-        .nav-links a {
-            text-decoration: none;
-            color: #daded8;
-            font-size: 16px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            padding: 8px 15px;
-            border-radius: 5px;
-        }
-        
-        .nav-links a:hover {
-            background-color: #4c583e;
-            color: #ffffff;
-        }
-        
         .btn-entrar {
-            background-color: #4c583e;
+            background-color: #4b613c;
             color: white !important;
             border: 1px solid #959581;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            padding: 6px 18px;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: bold;
         }
         
         .btn-entrar:hover {
             background-color: #959581 !important;
-            transform: translateY(-2px);
+            color: #2c3424 !important;
         }
         
-        .container_usuarios {
-            background-color: #ffffff;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            margin-top: 150px;
-            padding: 40px;
-            width: 300px;
-            margin-left: 90px;
-            text-align: center;
-            border-radius: 8px;
-            border: none;
-            border-top: 8px solid #2c3424;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            color: #2c3424;
-        }
-        
-        .container_livros {
-            background-color: #ffffff;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            margin-top: 150px;
-            padding: 40px;
-            width: 300px;
-            margin-left: 90px;
-            text-align: center;
-            border-radius: 8px;
-            border: none;
-            border-top: 8px solid #2c3424;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            color: #2c3424;
-        }
-        
-        .container_pai {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
+        .nav-menu-container {
+            background-color: #232a1d;
             width: 100%;
-        }
-        
-        .container_usuarios h3,
-        .container_livros h3 {
-            font-size: 14px;
-            letter-spacing: 2px;
-            color: #959581;
-            margin-bottom: 10px;
-        }
-        
-        .container_usuarios p,
-        .container_livros p {
-            font-size: 64px;
-            margin: 0;
-            color: #2c3424;
-            line-height: 1;
+            padding: 0 10%;
+            height: 45px;
             display: flex;
-            flex-direction: column;
             align-items: center;
         }
         
-        .container_usuarios p::after,
-        .container_livros p::after {
-            display: block;
-            width: 40px;
-            height: 4px;
-            background-color: #768064;
-            margin-top: 10px;
-            border-radius: 2px;
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 8px;
+            margin: 0;
+            margin-left: auto;
+            margin-right: auto;
         }
         
-        .container_usuarios p {
-            text-shadow: 2px 2px 0px #daded8;
+        .nav-links a {
+            text-decoration: none;
+            color: #b0b8ad;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            padding: 6px 14px;
+            border-radius: 4px;
+        }
+        
+        .nav-links a:hover {
+            background-color: rgba(255, 255, 255, 0.05);
+            color: #ffffff;
+        }
+        
+        .banner-biblioteca {
+            background-image: url("imagens/biblioteca.png");
+            background-size: cover;
+            background-position: center;
+            width: 100%;
+            height: 500px;
+        }
+        
+        .secao-livros {
+            padding: 60px 10%;
+        }
+        
+        .secao-titulo {
+            color: #2c3424;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 30px;
+            border-left: 5px solid #4b613c;
+            padding-left: 15px;
+        }
+        
+        .grid-livros {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+        }
+        
+        .card-livro {
+            background-color: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .card-livro:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+        }
+        
+        .capa-livro {
+            width: 100%;
+            height: 280px;
+            background-color: #d1d7d1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6a756a;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        .info-livro {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        
+        .titulo-livro {
+            font-size: 16px;
+            color: #2c3424;
+            font-weight: bold;
+            margin-bottom: 5px;
+            line-height: 1.3;
+        }
+        
+        .autor-livro {
+            font-size: 14px;
+            color: #7a8574;
+            margin-bottom: 15px;
+        }
+        
+        .btn-detalhes {
+            margin-top: auto;
+            background-color: #4b613c;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        
+        .btn-detalhes:hover {
+            background-color: #2c3424;
         }
     </style>
 </head>
@@ -140,30 +192,66 @@
 <body>
 
     <nav class="navbar">
-        <div class="logo">BIBLIO<span>TECA</span></div>
-        <ul class="nav-links">
-            <li><a href="#">Início</a></li>
-            <li><a href="#">Acervo</a></li>
-            <li><a href="#">Usuários</a></li>
-            <li><a href="#" class="btn-entrar">Entrar</a></li>
-        </ul>
+        <div class="nav-topo">
+            <div class="logo">BIBLIO<span>TECA</span></div>
+            <a href="#" class="btn-entrar">Entrar</a>
+        </div>
+
+        <div class="nav-menu-container">
+            <ul class="nav-links">
+                <li><a href="#">Início</a></li>
+                <li><a href="#">Acervo</a></li>
+                <li><a href="#">Usuários</a></li>
+            </ul>
+        </div>
     </nav>
 
+    <div class="banner-biblioteca"></div>
 
+    <main class="secao-livros">
+        <h2 class="secao-titulo">Livros em Destaque</h2>
 
-    <div class="container_pai">
-        <div class="container_usuarios">
-            <h3>USUÁRIOS</h3>
-            <p>8</p>
-            <span style="font-family: sans-serif; font-size: 12px; color: #768064;">Ativos no sistema</span>
+        <div class="grid-livros">
+
+            <div class="card-livro">
+                <div class="capa-livro">Imagem da Capa </div>
+                <div class="info-livro">
+                    <div class="titulo-livro">título do livro</div>
+                    <div class="autor-livro">autor do livro</div>
+                    <a href="#" class="btn-detalhes">Ver Detalhes</a>
+                </div>
+            </div>
+
+            <div class="card-livro">
+                <div class="capa-livro">Imagem da Capa </div>
+                <div class="info-livro">
+                    <div class="titulo-livro">título do livro</div>
+                    <div class="autor-livro">autor do livro</div>
+                    <a href="#" class="btn-detalhes">Ver Detalhes</a>
+                </div>
+            </div>
+
+            <div class="card-livro">
+                <div class="capa-livro">Imagem da Capa </div>
+                <div class="info-livro">
+                    <div class="titulo-livro">título do livro</div>
+                    <div class="autor-livro">autor do livro</div>
+                    <a href="#" class="btn-detalhes">Ver Detalhes</a>
+                </div>
+            </div>
+
+            <div class="card-livro">
+                <div class="capa-livro">Imagem da Capa </div>
+                <div class="info-livro">
+                    <div class="titulo-livro">título do livro</div>
+                    <div class="autor-livro">autor do livro</div>
+                    <a href="#" class="btn-detalhes">Ver Detalhes</a>
+                </div>
+            </div>
+
         </div>
+    </main>
 
-        <div class="container_livros">
-            <h3>LIVROS</h3>
-            <p>67</p>
-            <span style="font-family: sans-serif; font-size: 12px; color: #768064;">Títulos cadastrados</span>
-        </div>
-    </div>
 </body>
 
 </html>
