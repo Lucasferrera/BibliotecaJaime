@@ -1,0 +1,52 @@
+body {
+    background-color: antiquewhite;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.bloco1 {
+    background-color: #ffffff;
+    border-radius: 4px;
+    min-height: 200px; 
+    width: 800px;
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.3);
+    padding-bottom: 20px; 
+}
+
+.bloco2 { 
+    margin-left: 10px;
+    font-family: impact;
+    font-size: 24px;
+    padding-top: 1px;
+}
+.bloco3 {
+    background-color: rgb(0, 0, 0);
+    color: #ffffff;
+    padding: 2px 4px; 
+    margin: 10px 8px;
+    border-radius: 6px;
+    text-align: center;
+}
+
+.bloco4 {
+    width: 780px; 
+    margin-left: 10px;
+    border-collapse: collapse; /* tirar os vãos da table */
+}
+
+
+.cabecalho {
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+}
+
+
+.bloco4 td {
+    padding: 10px;
+    text-align: left;
+}
+
+.tr-background {
+    background-color: #f2f2f2;
+    color: black;
+}
