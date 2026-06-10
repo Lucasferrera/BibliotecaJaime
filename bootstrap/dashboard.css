@@ -1,0 +1,97 @@
+body {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #ffffff;
+  background-color: #fff;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  font-family: Georgia;
+}
+
+@media (min-width: 992px) {
+  .navbar-expand-lg {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+  }
+  .navbar-expand-lg .navbar-nav {
+    flex-direction: row;
+  }
+  .navbar-expand-lg .navbar-nav .dropdown-menu {
+    position: absolute;
+  }
+  .navbar-expand-lg .navbar-nav .nav-link {
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+  }
+  .navbar-expand-lg .navbar-nav-scroll {
+    overflow: visible;
+  }
+  .navbar-expand-lg .navbar-collapse {
+    display: flex !important;
+    flex-basis: auto;
+  }
+  .navbar-expand-lg .navbar-toggler {
+    display: none;
+  }
+}
+.navbar {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 2.0rem;
+  padding-bottom: 2.0rem;
+ 
+}
+.color-green{
+     color:white;
+}
+.btn-primary {
+  color: #fff;
+  background-color: darkgreen;
+  border-color: darkgreen;
+}
+.btn-primary:hover {
+  color: #fff;
+  background-color: darkgreen;
+  border-color: darkgreen;
+}
+.btn-check:focus + .btn-primary, .btn-primary:focus {
+  color: #fff;
+  background-color: darkgreen;
+  border-color: darkgreen;
+  box-shadow: 0 0 0 0.25rem rgb(207, 207, 207);
+}
+.btn-check:checked + .btn-primary, .btn-check:active + .btn-primary, .btn-primary:active, .btn-primary.active, .show > .btn-primary.dropdown-toggle {
+  color: #fff;
+  background-color: rgb(1, 122, 1);
+  border-color: rgb(1, 122, 1);
+}
+.btn-check:checked + .btn-primary:focus, .btn-check:active + .btn-primary:focus, .btn-primary:active:focus, .btn-primary.active:focus, .show > .btn-primary.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.25rem rgb(207, 207, 207);
+}
+.btn-primary:disabled, .btn-primary.disabled {
+  color: #fff;
+  background-color: #ffffff;
+  border-color: #ffffff;
+}
+.border-black{
+  border: 5px solid black ;
+  width: 25px;
+  height: 25px;
+}
+.fundo-verde{
+  background-color: darkgreen;
+}
+.letra-branca{
+  color: white;
+}
+.fundo-branco{
+  background-color: white;
+}
+* {
+    outline: 1px solid red;
+}
